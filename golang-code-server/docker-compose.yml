@@ -1,9 +1,8 @@
-# 配置说明：https://hub.docker.com/r/linuxserver/code-server
 version: "2.1"
 services:
-  code-server:
-    image: cnwangfei/code-server:23022601-coder4.10.0-golang1.19.6
-    container_name: code-server
+  golang-code-server:
+    image: cnwangfei/code-server:go1.21.12_coder4.91.1
+    container_name: golang-code-server
     environment:
       - PUID=1000
       - PGID=1000
