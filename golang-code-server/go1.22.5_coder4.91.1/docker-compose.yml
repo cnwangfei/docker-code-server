@@ -1,7 +1,7 @@
 version: "2.1"
 services:
   golang-code-server:
-    image: cnwangfei/code-server:go1.22.5_coder4.91.1
+    image: cnwangfei/code-server:go1.22.5_coder4.91.1_20240801
     container_name: golang-code-server
     environment:
       - PUID=1000
