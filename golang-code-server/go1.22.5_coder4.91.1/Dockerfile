@@ -54,13 +54,12 @@ RUN \
   && echo "**** set path ****" \
   && echo "export PATH=$PATH:/usr/local/go/bin" > /etc/profile \
   && echo "**** create user ****" \
-  && adduser --gecos '' --disabled-password coder \
+  && groupadd -g 1000 coder_group \
+  && useradd -u 1000 -g 1000 -d ${HOME} -s /bin/false -M coder \
   && echo "coder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/nopasswd \
-  && usermod -d ${HOME} coder \
   && echo "PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '" >> /etc/bash.bashrc
 
 COPY run /app/code-server
-
 
 USER coder
 ENV USER=coder

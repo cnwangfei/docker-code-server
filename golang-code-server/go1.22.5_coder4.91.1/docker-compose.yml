@@ -1,7 +1,7 @@
 version: "2.1"
 services:
   golang-code-server:
-    image: cnwangfei/code-server:go1.22.5_coder4.91.1_20240801
+    image: cnwangfei/code-server:go1.22.5_coder4.91.1_20240802
     container_name: golang-code-server
     environment:
       - PUID=1000
@@ -14,6 +14,7 @@ services:
       - PROXY_DOMAIN=code-server.my.domain #optional
       - DEFAULT_WORKSPACE=/config/workspace #optional
     volumes:
+    # sudo chown -R 1000:1000 config/ go/
       - ./config:/config
       - ./go:/go
     ports:
